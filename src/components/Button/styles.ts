@@ -1,9 +1,8 @@
 // components/Button/styles.ts
 
-export type Size = "sm" | "md" | "lg";
-export type Rounded = "none" | "sm" | "md" | "lg" | "xl" | "full";
-export type Variant = "solid" | "outline" | "ghost";
-export type Color = "primary" | "secondary";
+import { Size, Rounded, Color } from "../../types/ui";
+
+export type VariantButton = "solid" | "outline" | "ghost";
 
 export const buttonSizes: Record<Size, string> = {
   sm: "px-3 py-1 text-sm",
@@ -20,7 +19,7 @@ export const buttonRounded: Record<Rounded, string> = {
   full: "rounded-full",
 };
 
-export const buttonVariants: Record<Variant, Record<Color, string>> = {
+export const buttonVariants: Record<VariantButton, Record<Color, string>> = {
   solid: {
     primary:
       "bg-primary-500 text-secondary-500 border border-primary-500 hover:bg-primary-700 dark:bg-primary-800 dark:hover:bg-primary-900 disabled:bg-primary-500",

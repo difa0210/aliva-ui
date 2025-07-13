@@ -1,10 +1,8 @@
 import { cn } from "../../utils/cn";
 import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
+import { Size, Rounded, Color } from "../../types/ui";
 import {
-  Size,
-  Rounded,
-  Variant,
-  Color,
+  VariantButton,
   buttonSizes,
   buttonRounded,
   buttonVariants,
@@ -14,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   size?: Size;
   color?: Color;
-  variant?: Variant;
+  variant?: VariantButton;
   rounded?: Rounded;
   isLoading?: boolean;
   isFullWidth?: boolean;
@@ -47,27 +45,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const fullWidthClass = isFullWidth ? "w-full" : "";
 
     return (
-      <>
-      <input/>
-        <button
-          ref={ref}
-          type={type}
-          disabled={isLoading || disabled}
-          className={cn(
-            base,
-            buttonSizes[size],
-            buttonRounded[rounded],
-            buttonVariants[variant][color],
-            fullWidthClass,
-            className
-          )}
-          {...props}
-        >
-          {leftIcon && <span className="mr-2">{leftIcon}</span>}
-          {children}
-          {rightIcon && <span className="ml-2">{rightIcon}</span>}
-        </button>
-      </>
+      <button
+        ref={ref}
+        type={type}
+        disabled={isLoading || disabled}
+        aria-disabled={isLoading || disabled}
+        aria-busy={isLoading}
+        className={cn(
+          base,
+          buttonSizes[size],
+          buttonRounded[rounded],
+          buttonVariants[variant][color],
+          fullWidthClass,
+          className
+        )}
+        {...props}
+      >
+        {leftIcon && <span className="mr-2">{leftIcon}</span>}
+        {children}
+        {rightIcon && <span className="ml-2">{rightIcon}</span>}
+      </button>
     );
   }
 );

@@ -1,9 +1,6 @@
-// Input/styles.ts
+import { Size, Rounded, Color } from "../../types/ui";
 
-export type Size = "sm" | "md" | "lg";
-export type Rounded = "none" | "sm" | "md" | "lg" | "xl" | "full";
-export type Variant = "outline" | "filled" | "unstyled" | "subtle" | "flushed";
-export type Color = "primary" | "secondary";
+export type VariantInput = "outline" | "filled" | "unstyled" | "subtle" | "flushed";
 
 export const inputSizes: Record<Size, string> = {
   sm: "px-2 py-1 text-sm",
@@ -20,7 +17,7 @@ export const inputRounded: Record<Rounded, string> = {
   full: "rounded-full",
 };
 
-export const inputVariants: Record<Variant, Record<Color, string>> = {
+export const inputVariants: Record<VariantInput, Record<Color, string>> = {
   outline: {
     primary:
       "bg-white border border-primary-300 text-primary-500 placeholder:text-primary-300 hover:border-primary-500 focus:border-primary-500 disabled:!border-primary-300",

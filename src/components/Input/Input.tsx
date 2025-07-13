@@ -1,10 +1,8 @@
 import { cn } from "../../utils/cn";
 import { InputHTMLAttributes, forwardRef } from "react";
+import { Size, Rounded, Color } from "../../types/ui";
 import {
-  Size,
-  Rounded,
-  Variant,
-  Color,
+  VariantInput,
   inputSizes,
   inputRounded,
   inputVariants,
@@ -13,7 +11,7 @@ import {
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: Size;
   rounded?: Rounded;
-  variant?: Variant;
+  variant?: VariantInput;
   color?: Color;
   isInvalid?: boolean;
   isDisabled?: boolean;
