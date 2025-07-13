@@ -1,6 +1,6 @@
 import { Size, Rounded, Color, VariantInput } from "../../types/ui";
 
-export const inputSizes: Record<Size, string> = {
+export const textareaSizes: Record<Size, string> = {
   xs: "px-1 py-0.5 text-xs",
   sm: "px-2 py-1 text-sm",
   md: "px-3 py-2 text-base",
@@ -12,7 +12,7 @@ export const inputSizes: Record<Size, string> = {
   "5xl": "px-9 py-8 text-5xl",
 };
 
-export const inputRounded: Record<Rounded, string> = {
+export const textareaRounded: Record<Rounded, string> = {
   none: "rounded-none",
   sm: "rounded-sm",
   md: "rounded-md",
@@ -21,7 +21,7 @@ export const inputRounded: Record<Rounded, string> = {
   full: "rounded-full",
 };
 
-export const inputVariants: Record<VariantInput, Record<Color, string>> = {
+export const textareaVariants: Record<VariantInput, Record<Color, string>> = {
   outline: {
     primary:
       "bg-white border border-primary-300 text-primary-500 placeholder:text-primary-300 hover:border-primary-500 focus:border-primary-500 disabled:!border-primary-300",

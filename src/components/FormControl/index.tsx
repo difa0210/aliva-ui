@@ -1,5 +1,6 @@
 import { FormControlProps } from "./types";
 import { cn } from "../../utils/cn";
+import { labelSizes, textColors } from "./styles";
 
 export function FormControl({
   id,
@@ -9,29 +10,32 @@ export function FormControl({
   isRequired,
   isInvalid,
   isDisabled,
+  isFullWidth,
+  size = "md",
+  color = "primary",
   children,
   className,
 }: FormControlProps) {
   return (
-    <div className={cn("space-y-1", className)}>
+    <div className={cn("space-y-1", isFullWidth && "w-full", className)}>
       {label && (
         <label
           htmlFor={id}
           className={cn(
-            "block text-sm font-medium",
-            isDisabled ? "text-gray-400" : "text-gray-700"
+            "block font-medium",
+            labelSizes[size],
+            isDisabled ? "text-gray-400" : textColors[color]
           )}
         >
           {label}
-          {isRequired && <span className="text-red-500 ml-1">*</span>}
+          {isRequired && <span className="ml-1 text-error-500">*</span>}
         </label>
       )}
 
-      {/* Child seperti Input, Textarea, etc */}
       {children}
 
       {helperText && !isInvalid && (
-        <p className="text-sm text-gray-500">{helperText}</p>
+        <p className={cn("text-sm", textColors[color])}>{helperText}</p>
       )}
 
       {isInvalid && errorText && (

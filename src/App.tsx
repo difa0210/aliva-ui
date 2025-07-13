@@ -1,57 +1,43 @@
-import { Button } from "./components/Button";
-import { Input } from "./components/Input";
-
+import { Button, Input, TextArea, FormControl } from "./components/index";
 
 export default function App() {
   return (
     <div className="flex">
-      <div className="flex flex-col gap-4">
-        <div>
-          <Input variant="outline" />
-          <Input variant="filled" />
-          <Input variant="unstyled" />
-          <Input variant="subtle" />
-          <Input variant="flushed" />
-        </div>
-        <div>
-          <Input variant="outline" isDisabled />
-          <Input variant="filled" isDisabled />
-          <Input variant="unstyled" isDisabled />
-          <Input variant="subtle" isDisabled />
-          <Input variant="flushed" isDisabled />
-        </div>
-      </div>
-      <div>
-        <div>
-          <Input variant="outline" color="secondary" />
-          <Input variant="filled" color="secondary" />
-          <Input variant="unstyled"color="secondary" />
-          <Input variant="subtle" color="secondary" />
-          <Input variant="flushed" color="secondary" />
-        </div>
-        <div>
-          <Input variant="outline" isDisabled color="secondary" />
-          <Input variant="filled" isDisabled color="secondary" />
-          <Input variant="unstyled" isDisabled color="secondary" />
-          <Input variant="subtle" isDisabled color="secondary" />
-          <Input variant="flushed" isDisabled color="secondary" />
-        </div>
-      </div>
-      <div>
-        <div>
-          <Input variant="outline" isInvalid />
-          <Input variant="filled" isInvalid />
-          <Input variant="unstyled" isInvalid/>
-          <Input variant="subtle" isInvalid />
-          <Input variant="flushed" isInvalid />
-        </div>
-        <div>
-          <Input variant="outline" isDisabled isInvalid />
-          <Input variant="filled" isDisabled isInvalid />
-          <Input variant="unstyled" isDisabled isInvalid/>
-          <Input variant="subtle" isDisabled isInvalid />
-          <Input variant="flushed" isDisabled isInvalid />
-        </div>
+      <div className="w-1/2 p-4">
+        <FormControl
+          id="username"
+          label="Username"
+          helperText="Enter your username"
+          isRequired
+          size="md"
+        >
+          <Input id="username" placeholder="Username" />
+        </FormControl>
+
+        <FormControl
+          id="password"
+          label="Password"
+          helperText="Enter your password"
+          isRequired
+          isInvalid
+          errorText="Password is required"
+          size="md"
+        >
+          <Input type="password" id="password" placeholder="Password" />
+        </FormControl>
+
+        <FormControl
+          id="comments"
+          label="Comments"
+          helperText="Your feedback is important to us"
+          size="md"
+        >
+          <TextArea id="comments" placeholder="Enter your comments here..." />
+        </FormControl>
+
+        <Button color="primary" size="md" className="mt-4" onClick={() => alert("Form submitted!")}>
+          Submit
+        </Button>
       </div>
     </div>
   )

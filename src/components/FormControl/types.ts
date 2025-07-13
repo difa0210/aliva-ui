@@ -7,7 +7,10 @@ export interface FormControlProps {
   errorText?: string;
   isRequired?: boolean;
   isInvalid?: boolean;
+  isFullWidth?: boolean;
   isDisabled?: boolean;
   children: ReactNode;
   className?: string;
+  color?: "primary" | "secondary" | "error" | "success" | "warning" | "info";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
 }

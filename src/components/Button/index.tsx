@@ -1,24 +1,12 @@
 import { cn } from "../../utils/cn";
-import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
-import { Size, Rounded, Color } from "../../types/ui";
+import { forwardRef } from "react";
 import {
-  VariantButton,
   buttonSizes,
   buttonRounded,
   buttonVariants,
+  iconSpacing,
 } from "./styles";
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  size?: Size;
-  color?: Color;
-  variant?: VariantButton;
-  rounded?: Rounded;
-  isLoading?: boolean;
-  isFullWidth?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-}
+import { ButtonProps } from "./types";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -35,6 +23,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       className,
       type = "button",
+      spacing = "md",
       ...props
     },
     ref
@@ -61,9 +50,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...props}
       >
-        {leftIcon && <span className="mr-2">{leftIcon}</span>}
+        {leftIcon && children && <span style={{marginRight: iconSpacing[spacing]}}>{leftIcon}</span>}
         {children}
-        {rightIcon && <span className="ml-2">{rightIcon}</span>}
+        {rightIcon && children && <span style={{marginLeft: iconSpacing[spacing]}}>{rightIcon}</span>}
       </button>
     );
   }

@@ -1,27 +1,16 @@
 import { cn } from "../../utils/cn";
-import { InputHTMLAttributes, forwardRef } from "react";
-import { Size, Rounded, Color } from "../../types/ui";
+import { forwardRef } from "react";
 import {
-  VariantInput,
   inputSizes,
   inputRounded,
   inputVariants,
 } from "./styles";
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  inputSize?: Size;
-  rounded?: Rounded;
-  variant?: VariantInput;
-  color?: Color;
-  isInvalid?: boolean;
-  isDisabled?: boolean;
-  isFullWidth?: boolean;
-}
+import { InputProps } from "./types";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
-      inputSize = "md",
+      size = "md",
       rounded = "md",
       variant = "outline",
       color = "primary",
@@ -34,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const invalidClass = isInvalid
-      ? "!border-error-500 !text-error-500"
+      ? "!text-error-500"
       : "";
 
     const disabledClass = isDisabled ? "opacity-50 cursor-not-allowed" : "";
@@ -45,9 +34,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <input
         ref={ref}
         disabled={isDisabled}
+        aria-invalid={isInvalid}
+        aria-disabled={isDisabled}
         className={cn(
           "transition",
-          inputSizes[inputSize],
+          inputSizes[size],
           inputRounded[rounded],
           inputVariants[variant][color],
           invalidClass,
