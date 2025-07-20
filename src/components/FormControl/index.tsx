@@ -1,6 +1,7 @@
 import { FormControlProps } from "./types";
 import { cn } from "../../utils/cn";
 import { labelSizes, textColors } from "./styles";
+import { cloneElement, isValidElement } from "react";
 
 export function FormControl({
   id,
@@ -14,32 +15,49 @@ export function FormControl({
   size = "md",
   color = "primary",
   children,
-  className,
+  className
 }: FormControlProps) {
+  const base = "mb-4";
+  const labelClass = "block font-medium";
+  const disabledClass = isDisabled ? "text-gray-400" : textColors[color];
+  const isRequiredClass = "ml-1 text-error-500";
+  const helperTextClass =  "text-sm";
+  const invalidClass = isInvalid ? "text-sm text-error-500" : "";
+  const fullWidthClass = isFullWidth ? "w-full" : "";
+
   return (
-    <div className={cn("space-y-1", isFullWidth && "w-full", className)}>
+    <div 
+      className={cn(
+      base,
+      fullWidthClass,
+      className
+      )}
+    >
       {label && (
         <label
+          id={`label-${id}`}
           htmlFor={id}
           className={cn(
-            "block font-medium",
+            labelClass,
             labelSizes[size],
-            isDisabled ? "text-gray-400" : textColors[color]
+            disabledClass
           )}
         >
           {label}
-          {isRequired && <span className="ml-1 text-error-500">*</span>}
+          {isRequired && <span className={isRequiredClass}>*</span>}
         </label>
       )}
-
-      {children}
-
+      {label && id && isValidElement(children)
+      ? cloneElement(children as React.ReactElement<any>, {
+          id,
+          'aria-labelledby': `label-${id}`,
+        })
+      : children}
       {helperText && !isInvalid && (
-        <p className={cn("text-sm", textColors[color])}>{helperText}</p>
+        <p className={cn(helperTextClass, textColors[color])}>{helperText}</p>
       )}
-
       {isInvalid && errorText && (
-        <p className="text-sm text-error-500">{errorText}</p>
+        <p className={cn(invalidClass)}>{errorText}</p>
       )}
     </div>
   );
