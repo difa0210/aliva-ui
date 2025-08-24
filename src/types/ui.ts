@@ -28,3 +28,4 @@ export type VariantInput =
   | "subtle"
   | "flushed";
 export type VariantCheckbox = "solid" | "outline" | "ghost";
+export type VariantGap = "none" | "sm" | "md" | "lg" | "xl" | "2xl";

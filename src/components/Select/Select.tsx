@@ -55,8 +55,7 @@ export const Select = ({
   color = "primary",
   isInvalid,
   isDisabled,
-  isFullWidth = true,
-  isClearable = true,
+  isFullWidth,
   isLoading = false,
   isMulti = false,
   usePortal = false,
@@ -116,10 +115,12 @@ export const Select = ({
 
   const handleSelect = useCallback(
     (val: string) => {
-      setIsOpen(false);
       setSearch("");
       setSearchItems("");
       setFocusedIndex(-1);
+      if (!isMulti) {
+        setIsOpen(false);
+      }
       if (val === "") {
         onChange?.(isMulti ? [] : "");
         setUncontrolledValue(isMulti ? [] : "");
@@ -281,7 +282,7 @@ export const Select = ({
 
   const invalidClass = isInvalid ? "!border-error-500 !text-error-500" : "";
   const disabledClass = isDisabled ? "opacity-50" : "";
-  const fullWidthClass = isFullWidth ? "relative w-full" : "relative";
+  const fullWidthClass = isFullWidth ? "w-full" : "";
   const isWithoutPaddingClass = variant === "flushed" ? "!px-0" : "";
   const isWithoutPaddingItemsClass = variantItems === "flushed" ? "!px-0" : "";
   const dropdownVisibleClass = dropdownVisible
@@ -421,7 +422,6 @@ export const Select = ({
           onFocus={() => setIsOpen(true)}
           onKeyDown={(e) => {
             if (
-              isClearable &&
               !search &&
               isMulti &&
               Array.isArray(value) &&
@@ -429,7 +429,7 @@ export const Select = ({
               e.key === "Backspace"
             ) {
               handleSelect(value[value.length - 1]);
-            } else if (isClearable && !search && e.key === "Backspace") {
+            } else if (!search && e.key === "Backspace") {
               handleSelect("");
             }
 
@@ -471,7 +471,6 @@ export const Select = ({
             if (!isOpen && (e.key === "ArrowDown" || e.key === "Enter")) {
               setIsOpen(true);
             } else if (
-              isClearable &&
               !search &&
               isMulti &&
               Array.isArray(value) &&
@@ -479,7 +478,7 @@ export const Select = ({
               e.key === "Backspace"
             ) {
               handleSelect(value[value.length - 1]);
-            } else if (isClearable && !search && e.key === "Backspace") {
+            } else if (!search && e.key === "Backspace") {
               handleSelect("");
             }
             if (isOpen) handleKeyDown(e);
@@ -538,7 +537,7 @@ export const Select = ({
               )
             )}
 
-            {(isClearable && value && value.length > 0 && !isDisabled) && (
+            {(!isMulti && value && value.length > 0 && !isDisabled) && (
               <button
                 onClick={(e) => {
                   e.stopPropagation();

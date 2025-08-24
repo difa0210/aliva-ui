@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Button,
   Input,
@@ -5,10 +6,14 @@ import {
   FormControl,
   Select,
   SelectItem,
-  Checkbox
+  Checkbox,
+  Radio,
+  RadioGroup
 } from "./components/index";
 
 export default function App() {
+  const [selected, setSelected] = React.useState("option1");
+
   return (
     <div className="">
       <div className="p-4">
@@ -76,6 +81,36 @@ export default function App() {
           helperText="This field is Checkbox"
         >
           <Checkbox variant="solid" color="primary" />
+          <Checkbox variant="outline" color="error" />
+          <Checkbox variant="ghost" color="success" />
+        </FormControl>
+
+        <FormControl
+          id="radio"
+          label="Radio"
+          helperText="This field is Radio"
+        >
+          <Radio variant="solid" color="error" name="gender" value="male" label="Male" />
+        </FormControl>
+
+        <FormControl
+          id="radio-group"
+          label="Radio Group"
+          helperText="This field is Radio Group"
+        >
+          <RadioGroup
+            options={[
+              { label: "Option 1", value: "option1" },
+              { label: "Option 2", value: "option2", disabled: true },
+              { label: "Option 3", value: "option3" },
+            ]}
+            value={selected}
+            onChange={setSelected}
+            size="lg"
+            color="success"
+            variant="outline"
+            horizontal
+          />
         </FormControl>
 
         <Button

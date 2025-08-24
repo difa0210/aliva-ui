@@ -4,6 +4,8 @@ import { TextArea } from "./TextArea";
 import { FormControl } from "./FormControl";
 import { Select, SelectItem } from "./Select";
 import { Checkbox } from "./Checkbox";
+import { Radio } from "./Radio";
+import { RadioGroup } from './RadioGroup/index';
 
 export {
     Button,
@@ -13,4 +15,6 @@ export {
     Select,
     SelectItem,
     Checkbox,
+    Radio,
+    RadioGroup
 };

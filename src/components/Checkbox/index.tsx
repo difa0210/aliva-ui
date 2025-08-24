@@ -20,19 +20,23 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       color = "primary",
       label,
       className,
+      id,
       ...props
     },
     ref
   ) => {
+    const uniqueId = id || React.useId();
+
     return (
-      <label className={checkboxWrapper}>
+      <div className={checkboxWrapper}>
         <input
           type="checkbox"
           ref={ref}
           className={cn(checkboxInput)}
           {...props}
+          id={uniqueId}
         />
-        <span
+        <label
           className={cn(
             checkboxBox,
             checkboxSizes[size],
@@ -40,11 +44,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             checkboxVariants[variant][color],
             className
           )}
+          htmlFor={uniqueId}
         >
           ✓
-        </span>
+        </label>
         {label && <span className={checkboxLabel}>{label}</span>}
-      </label>
+      </div>
     );
   }
 );

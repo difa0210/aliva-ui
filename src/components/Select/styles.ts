@@ -110,15 +110,15 @@ export const selectItemVariants: Record<Color, string> = {
   info: "bg-info-100 text-info-500 hover:bg-info-200",
 };
 
-export const base = "transition cursor-pointer my-1 text-left min-w-[250px]";
+export const base = "min-w-[250px] transition cursor-pointer my-1 text-left";
 export const baseSelectItem = "cursor-pointer flex items-center justify-between px-3 py-1";
-export const isOpenClass = "absolute z-10 mt-1 bg-white border-gray-200 shadow-lg min-w-[250px] transition-all duration-200 ease-in-out";
+export const isOpenClass = "min-w-[250px] absolute z-10 mt-1 bg-white border-gray-200 shadow-lg transition-all duration-200 ease-in-out";
 export const itemsClass = "max-h-60 overflow-y-auto";
 export const isSelectedClass = "bg-gray-100";
 export const isFocusedClass = "bg-primary-100";
 export const placeholderClass = "text-gray-400";
 export const iconItemsClass = "flex items-center gap-2";
-export const searchItemsClass = "w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none";
+export const searchItemsClass = "border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none";
 export const emptyStateClass = "py-6 flex flex-col items-center justify-center text-center text-gray-500 text-sm";
 export const emptyStateIconClass = "text-2xl mb-1";
 export const emptyStateTextClass = "text-gray-500 text-sm";
