@@ -27,3 +27,4 @@ export type VariantInput =
   | "unstyled"
   | "subtle"
   | "flushed";
+export type VariantCheckbox = "solid" | "outline" | "ghost";

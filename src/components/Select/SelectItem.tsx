@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { cn } from "../../utils/cn";
 import { SelectItemProps } from "./types";
-import { selectItemVariants, selectRounded, selectSizes } from "./styles";
+import { baseSelectItem, selectItemVariants, selectRounded, selectSizes } from "./styles";
 
 export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   (
@@ -21,7 +21,6 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
     },
     ref
   ) => {
-    const base = "cursor-pointer flex items-center justify-between px-3 py-2";
     const isDisabledClass = isDisabled ? "opacity-50" : "";
     const fullWidthClass = isFullWidth ? "w-full" : "";
 
@@ -33,7 +32,7 @@ export const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
         tabIndex={isDisabled ? -1 : 0}
         aria-disabled={isDisabled}
         className={cn(
-          base,
+          baseSelectItem,
           fullWidthClass,
           selectSizes[size],
           selectRounded[rounded],

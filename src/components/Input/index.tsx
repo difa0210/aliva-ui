@@ -1,6 +1,6 @@
 import { cn } from "../../utils/cn";
 import { forwardRef } from "react";
-import { inputSizes, inputRounded, inputVariants } from "./styles";
+import { inputSizes, inputRounded, inputVariants, base } from "./styles";
 import { InputProps } from "./types";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -18,7 +18,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const base = "transition my-1 min-w-[250px]";
     const invalidClass = isInvalid ? "!text-error-500" : "";
     const disabledClass = isDisabled ? "opacity-50 cursor-default" : "";
     const fullWidthClass = isFullWidth ? "w-full" : "";

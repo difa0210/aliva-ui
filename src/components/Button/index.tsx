@@ -5,6 +5,7 @@ import {
   buttonRounded,
   buttonVariants,
   iconSpacing,
+  base,
 } from "./styles";
 import { ButtonProps } from "./types";
 
@@ -28,7 +29,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const base = "inline-flex items-center justify-center font-medium transition disabled:opacity-50 disabled:cursor-default cursor-pointer";
     const fullWidthClass = isFullWidth ? "w-full" : "";
 
     return (

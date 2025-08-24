@@ -19,4 +19,9 @@ export const textColors: Record<Color, string> = {
     success: "text-success-500",
     warning: "text-warning-500",
     info: "text-info-500",
-  };
+};
+
+export const base = "mb-4";
+export const labelClass = "block font-medium";
+export const isRequiredClass = "ml-1 text-error-500";
+export const helperTextClass =  "text-sm";

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { cn } from "../../utils/cn";
 import { TextAreaProps } from "./types";
-import { textareaSizes, textareaRounded, textareaVariants } from "./styles";
+import { textareaSizes, textareaRounded, textareaVariants, base } from "./styles";
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
@@ -19,11 +19,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     },
     ref
   ) => {
-    const base =
-      "transition resize-none mt-1 break-words whitespace-pre-wrap min-w-[250px]";
     const invalidClass = isInvalid ? "!border-error-500 !text-error-500" : "";
-    const disabledClass =
-      isDisabled || readOnly ? "opacity-50 cursor-default" : "";
+    const disabledClass = isDisabled || readOnly ? "opacity-50 cursor-default" : "";
     const fullWidthClass = isFullWidth ? "w-full" : "";
     const isWithoutPaddingClass = variant === "flushed" ? "!px-0" : "";
 

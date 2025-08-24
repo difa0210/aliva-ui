@@ -1,6 +1,6 @@
 import { FormControlProps } from "./types";
 import { cn } from "../../utils/cn";
-import { labelSizes, textColors } from "./styles";
+import { base, helperTextClass, isRequiredClass, labelClass, labelSizes, textColors } from "./styles";
 import { cloneElement, isValidElement } from "react";
 
 export function FormControl({
@@ -17,11 +17,7 @@ export function FormControl({
   children,
   className
 }: FormControlProps) {
-  const base = "mb-4";
-  const labelClass = "block font-medium";
   const disabledClass = isDisabled ? "text-gray-400" : textColors[color];
-  const isRequiredClass = "ml-1 text-error-500";
-  const helperTextClass =  "text-sm";
   const invalidClass = isInvalid ? "text-sm text-error-500" : "";
   const fullWidthClass = isFullWidth ? "w-full" : "";
 

@@ -11,14 +11,14 @@ export const iconSpacing: Record<VariantIconSpacing, string> = {
 
 export const buttonSizes: Record<Size, string> = {
   xs: "px-2 py-1 text-xs",
-  sm: "px-3 py-1 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-5 py-3 text-lg",
-  xl: "px-6 py-4 text-xl",
-  "2xl": "px-8 py-5 text-2xl",
-  "3xl": "px-10 py-6 text-3xl",
-  "4xl": "px-12 py-7 text-4xl",
-  "5xl": "px-14 py-8 text-5xl",
+  sm: "px-2 py-1 text-sm",
+  md: "px-2 py-1 text-base",
+  lg: "px-2 py-1 text-lg",
+  xl: "px-2 py-1 text-xl",
+  "2xl": "px-2 py-1 text-2xl",
+  "3xl": "px-2 py-1 text-3xl",
+  "4xl": "px-2 py-1 text-4xl",
+  "5xl": "px-2 py-1 text-5xl",
 };
 
 export const buttonRounded: Record<Rounded, string> = {
@@ -62,3 +62,5 @@ export const buttonVariants: Record<VariantButton, Record<Color, string>> = {
     info: "",
   },
 };
+
+export const base = "inline-flex items-center justify-center font-medium transition disabled:opacity-50 disabled:cursor-default cursor-pointer";

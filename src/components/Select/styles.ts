@@ -1,15 +1,15 @@
 import { Color, Rounded, Size, VariantInput } from "../../types/ui";
 
 export const selectSizes: Record<Size, string> = {
-  xs: "text-xs px-1 py-0.5",
+  xs: "text-xs px-2 py-1",
   sm: "text-sm px-2 py-1",
-  md: "text-base px-3 py-2",
-  lg: "text-lg px-4 py-3",
-  xl: "text-xl px-5 py-4",
-  "2xl": "text-2xl px-6 py-5",
-  "3xl": "text-3xl px-7 py-6",
-  "4xl": "text-4xl px-8 py-7",
-  "5xl": "text-5xl px-9 py-8",
+  md: "text-base px-3 py-1",
+  lg: "text-lg px-2 py-1",
+  xl: "text-xl px-2 py-1",
+  "2xl": "text-2xl px-2 py-1",
+  "3xl": "text-3xl px-2 py-1",
+  "4xl": "text-4xl px-2 py-1",
+  "5xl": "text-5xl px-2 py-1",
 };
 
 export const selectIconSizes: Record<Size, string> = {
@@ -102,14 +102,25 @@ export const selectVariants: Record<VariantInput, Record<Color, string>> = {
 };
 
 export const selectItemVariants: Record<Color, string> = {
-  primary:
-    "bg-white text-primary-500 hover:bg-primary-500 hover:text-secondary-500 focus:bg-primary-500",
-  secondary:
-    "bg-secondary-100 text-secondary-500 hover:bg-secondary-500 focus:bg-secondary-500",
+  primary: "bg-white text-primary-500 hover:bg-primary-200",
+  secondary: "bg-secondary-100 text-secondary-500 hover:bg-secondary-200",
   error: "bg-error-100 text-error-500 hover:bg-error-500 focus:bg-error-500",
-  success:
-    "bg-success-100 text-success-500 hover:bg-success-500 focus:bg-success-500",
-  warning:
-    "bg-warning-100 text-warning-500 hover:bg-warning-500 focus:bg-warning-500",
-  info: "bg-info-100 text-info-500 hover:bg-info-500 focus:bg-info-500",
+  success: "bg-success-100 text-success-500 hover:bg-success-200",
+  warning: "bg-warning-100 text-warning-500 hover:bg-warning-200",
+  info: "bg-info-100 text-info-500 hover:bg-info-200",
 };
+
+export const base = "transition cursor-pointer my-1 text-left min-w-[250px]";
+export const baseSelectItem = "cursor-pointer flex items-center justify-between px-3 py-1";
+export const isOpenClass = "absolute z-10 mt-1 bg-white border-gray-200 shadow-lg min-w-[250px] transition-all duration-200 ease-in-out";
+export const itemsClass = "max-h-60 overflow-y-auto";
+export const isSelectedClass = "bg-gray-100";
+export const isFocusedClass = "bg-primary-100";
+export const placeholderClass = "text-gray-400";
+export const iconItemsClass = "flex items-center gap-2";
+export const searchItemsClass = "w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none";
+export const emptyStateClass = "py-6 flex flex-col items-center justify-center text-center text-gray-500 text-sm";
+export const emptyStateIconClass = "text-2xl mb-1";
+export const emptyStateTextClass = "text-gray-500 text-sm";
+export const animateClass = "animate-spin text-xl";
+export const clearClass = "cursor-pointer ml-auto text-primary-400 hover:text-primary-500 text-md";

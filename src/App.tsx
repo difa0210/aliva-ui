@@ -5,6 +5,7 @@ import {
   FormControl,
   Select,
   SelectItem,
+  Checkbox
 } from "./components/index";
 
 export default function App() {
@@ -16,9 +17,8 @@ export default function App() {
           label="Username"
           helperText="Enter your username"
           isRequired
-          size="md"
         >
-          <Input variant="flushed" id="username" placeholder="Username" />
+          <Input id="username" placeholder="Username" />
         </FormControl>
 
         <FormControl
@@ -28,7 +28,6 @@ export default function App() {
           isRequired
           isInvalid
           errorText="Password is required"
-          size="md"
         >
           <Input type="password" id="password" placeholder="Password" />
         </FormControl>
@@ -37,7 +36,6 @@ export default function App() {
           id="comments"
           label="Comments"
           helperText="Your feedback is important to us"
-          size="xl"
         >
           <TextArea
             // variant="flushed"
@@ -50,9 +48,8 @@ export default function App() {
           id="select"
           label="Select"
           helperText="This field is Select"
-          size="xl"
         >
-          <Select variant="flushed" isFullWidth id="select">
+          <Select variant="flushed" id="select" isMulti>
             <SelectItem value="id">Indonesia</SelectItem>
             <SelectItem value="us">United States</SelectItem>
             <SelectItem value="uk">United Kingdom</SelectItem>
@@ -71,6 +68,14 @@ export default function App() {
             <SelectItem value="it">Italy</SelectItem>
             <SelectItem value="es">Spain</SelectItem>
           </Select>
+        </FormControl>
+
+        <FormControl
+          id="checkbox"
+          label="Checkbox"
+          helperText="This field is Checkbox"
+        >
+          <Checkbox variant="solid" color="primary" />
         </FormControl>
 
         <Button

@@ -16,6 +16,19 @@ import {
   selectRounded,
   selectVariants,
   selectIconSizes,
+  isOpenClass,
+  base,
+  iconItemsClass,
+  searchItemsClass,
+  emptyStateClass,
+  animateClass,
+  emptyStateTextClass,
+  emptyStateIconClass,
+  itemsClass,
+  isSelectedClass,
+  isFocusedClass,
+  placeholderClass,
+  clearClass,
 } from "./styles";
 import { SelectItemProps } from "./types";
 import { SelectItem } from "./SelectItem";
@@ -266,31 +279,14 @@ export const Select = ({
     };
   }, [isOpen]);
 
-  const base = "transition cursor-pointer my-1 text-left min-w-[250px]";
-  const isOpenClass =
-    "absolute z-10 mt-1 bg-white border-gray-200 shadow-lg min-w-[250px] transition-all duration-200 ease-in-out";
-  const itemsClass = "max-h-60 overflow-y-auto";
   const invalidClass = isInvalid ? "!border-error-500 !text-error-500" : "";
   const disabledClass = isDisabled ? "opacity-50" : "";
   const fullWidthClass = isFullWidth ? "relative w-full" : "relative";
   const isWithoutPaddingClass = variant === "flushed" ? "!px-0" : "";
   const isWithoutPaddingItemsClass = variantItems === "flushed" ? "!px-0" : "";
-  const isSelectedClass = "bg-gray-100";
-  const isFocusedClass = "bg-primary-100";
-  const placeholderClass = "text-gray-400";
-  const iconItemsClass = "flex items-center gap-2";
-  const searchItemsClass =
-    "w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none";
-  const emptyStateClass =
-    "py-6 flex flex-col items-center justify-center text-center text-gray-500 text-sm";
-  const emptyStateIconClass = "text-2xl mb-1";
-  const emptyStateTextClass = "text-gray-500 text-sm";
   const dropdownVisibleClass = dropdownVisible
     ? "opacity-100 translate-y-0"
     : "opacity-0 -translate-y-1 pointer-events-none";
-  const animateClass = "animate-spin text-xl";
-  const clearClass =
-    "cursor-pointer ml-auto text-primary-400 hover:text-primary-500 text-md";
 
   const triggerProps = {
     role: "combobox" as const,
@@ -525,7 +521,7 @@ export const Select = ({
                             e.stopPropagation();
                             handleSelect(child.props.value);
                           }}
-                          className="ml-1 text-primary-600 hover:text-primary-800"
+                          className="ml-1 cursor-pointer text-primary-400 hover:text-primary-800"
                           aria-label={`Remove ${child.props.children}`}
                         >
                           ✕
@@ -542,7 +538,7 @@ export const Select = ({
               )
             )}
 
-            {(isClearable && value && !isDisabled) && (
+            {(isClearable && value && value.length > 0 && !isDisabled) && (
               <button
                 onClick={(e) => {
                   e.stopPropagation();

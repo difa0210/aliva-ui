@@ -1,15 +1,15 @@
 import { Size, Rounded, Color, VariantInput } from "../../types/ui";
 
 export const textareaSizes: Record<Size, string> = {
-  xs: "px-1 py-0.5 text-xs",
+  xs: "px-2 py-1 text-xs",
   sm: "px-2 py-1 text-sm",
-  md: "px-3 py-2 text-base",
-  lg: "px-4 py-3 text-lg",
-  xl: "px-5 py-4 text-xl",
-  "2xl": "px-6 py-5 text-2xl",
-  "3xl": "px-7 py-6 text-3xl",
-  "4xl": "px-8 py-7 text-4xl",
-  "5xl": "px-9 py-8 text-5xl",
+  md: "px-2 py-1 text-base",
+  lg: "px-2 py-1 text-lg",
+  xl: "px-2 py-1 text-xl",
+  "2xl": "px-2 py-1 text-2xl",
+  "3xl": "px-2 py-1 text-3xl",
+  "4xl": "px-2 py-1 text-4xl",
+  "5xl": "px-2 py-1 text-5xl",
 };
 
 export const textareaRounded: Record<Rounded, string> = {
@@ -71,3 +71,5 @@ export const textareaVariants: Record<VariantInput, Record<Color, string>> = {
     info: "",
   },  
 };
+
+export const base = "transition resize-none mt-1 break-words whitespace-pre-wrap min-w-[250px]";
