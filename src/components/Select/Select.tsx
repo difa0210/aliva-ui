@@ -525,7 +525,7 @@ export const Select = ({
                             e.stopPropagation();
                             handleSelect(child.props.value);
                           }}
-                          className="text-primary-600 hover:text-primary-800 ml-1"
+                          className="ml-1 text-primary-600 hover:text-primary-800"
                           aria-label={`Remove ${child.props.children}`}
                         >
                           ✕
@@ -542,7 +542,7 @@ export const Select = ({
               )
             )}
 
-            {isClearable && value && !isDisabled && (
+            {(isClearable && value && !isDisabled) && (
               <button
                 onClick={(e) => {
                   e.stopPropagation();
